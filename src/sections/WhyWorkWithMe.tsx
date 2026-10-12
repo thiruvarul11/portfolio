@@ -8,65 +8,64 @@ export const WhyWorkWithMe: React.FC = () => {
   const getStrengthIcon = (iconName: StrengthItem['iconName']) => {
     switch (iconName) {
       case 'lightbulb':
-        return { icon: Lightbulb, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Lightbulb, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'users':
-        return { icon: Users, color: 'text-amber-400 bg-amber-500/10 border-amber-500/25' }
+        return { icon: Users, color: 'text-[#A0FFC0] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'bookOpen':
-        return { icon: BookOpen, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: BookOpen, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'cpu':
-        return { icon: Cpu, color: 'text-amber-400 bg-amber-500/10 border-amber-500/25' }
+        return { icon: Cpu, color: 'text-[#A0FFC0] bg-[#67F59A]/10 border-[#67F59A]/20' }
       default:
-        return { icon: Sparkles, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Sparkles, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
     }
   }
 
   return (
-    <section id="why-work-with-me" className="py-20 bg-[#0C0806] relative bg-tech-dots">
+    <section id="why-work-with-me" className="py-24 bg-transparent relative border-t border-[#232924]/70">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="flex flex-col items-start mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 font-mono text-xs mb-3 font-semibold tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171A18] border border-[#232924] text-[#67F59A] font-mono text-xs mb-3 font-semibold tracking-wider">
             <span>WHY WORK WITH ME</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F7F3EF] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F7F8F6] tracking-tight">
             What I Bring to the Team
           </h2>
-          <p className="text-[#A99C94] text-sm sm:text-base mt-2 max-w-2xl">
+          <p className="text-[#A8AEA9] text-sm sm:text-base mt-2 max-w-2xl">
             Combining technical foundations, problem-solving, collaboration, and a commitment to continuous learning.
           </p>
         </div>
 
-        {/* 4 Cards Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Cards Grid — height: auto, no text clipping, adaptive flex layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {strengths.map((strength) => {
             const { icon: Icon, color: iconStyle } = getStrengthIcon(strength.iconName)
-
             return (
               <div
                 key={strength.id}
-                className="warm-card warm-card-hover rounded-3xl p-6 sm:p-7 flex flex-col items-start justify-between border border-orange-500/15 group"
+                className="bg-[#171A18] rounded-3xl p-5 sm:p-6 flex flex-col justify-between border border-[#232924] hover:border-[#67F59A]/30 transition-all duration-300 group"
               >
                 <div>
-                  {/* Icon Container with Warm Glow on hover */}
-                  <div className={`p-3.5 rounded-2xl border mb-5 transition-transform duration-300 group-hover:scale-105 ${iconStyle}`}>
-                    <Icon className="w-6 h-6" />
+                  {/* Compact icon badge */}
+                  <div className={`inline-flex p-3 rounded-2xl border mb-4 self-start transition-transform duration-300 group-hover:scale-105 ${iconStyle}`}>
+                    <Icon className="w-5 h-5" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base sm:text-lg font-bold text-[#F7F3EF] mb-3 leading-snug">
+                  <h3 className="text-base font-bold text-[#F7F3EF] mb-2 leading-snug">
                     {strength.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-[#A99C94] leading-relaxed">
+                  {/* Description — full readable text, no clipping */}
+                  <p className="text-xs sm:text-sm text-[#A8AEA9] leading-relaxed">
                     {strength.description}
                   </p>
                 </div>
 
-                {/* Subtle indicator bar */}
-                <div className="w-full mt-6 pt-4 border-t border-orange-500/10 flex items-center justify-between text-[11px] font-mono text-orange-400/80">
+                {/* Minimal bottom indicator */}
+                <div className="mt-5 pt-3.5 border-t border-[#232924] flex items-center justify-between text-[10px] font-mono text-[#A8AEA9]">
                   <span>Core Trait</span>
-                  <div className="w-2 h-2 rounded-full bg-orange-500/70 group-hover:bg-orange-400 transition-colors" />
+                  <div className="w-2 h-2 rounded-full bg-[#67F59A]/70 group-hover:bg-[#67F59A] transition-colors" />
                 </div>
               </div>
             )

@@ -20,19 +20,19 @@ export const Certifications: React.FC = () => {
   const getCategoryIcon = (category: CertificationItem['category']) => {
     switch (category) {
       case 'aiml':
-        return { icon: Brain, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Brain, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'cloud':
-        return { icon: Cloud, color: 'text-amber-400 bg-amber-500/10 border-amber-500/25' }
+        return { icon: Cloud, color: 'text-[#A0FFC0] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'database':
-        return { icon: Database, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Database, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'programming':
-        return { icon: Code, color: 'text-amber-400 bg-amber-500/10 border-amber-500/25' }
+        return { icon: Code, color: 'text-[#A0FFC0] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'automation':
-        return { icon: Bot, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Bot, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
       case 'vocational':
-        return { icon: Keyboard, color: 'text-amber-400 bg-amber-500/10 border-amber-500/25' }
+        return { icon: Keyboard, color: 'text-[#A0FFC0] bg-[#67F59A]/10 border-[#67F59A]/20' }
       default:
-        return { icon: Award, color: 'text-orange-400 bg-orange-500/10 border-orange-500/25' }
+        return { icon: Award, color: 'text-[#67F59A] bg-[#67F59A]/10 border-[#67F59A]/20' }
     }
   }
 
@@ -54,17 +54,17 @@ export const Certifications: React.FC = () => {
   })
 
   return (
-    <section id="certifications" className="py-20 bg-[#0C0806] relative bg-tech-grid">
+    <section id="certifications" className="py-24 bg-transparent relative border-t border-[#232924]/70">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="flex flex-col items-start mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 font-mono text-xs mb-3 font-semibold tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171A18] border border-[#232924] text-[#67F59A] font-mono text-xs mb-3 font-semibold tracking-wider">
             <span>CREDENTIALS &amp; TRAINING</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F7F3EF] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F7F8F6] tracking-tight">
             Certifications &amp; Courses
           </h2>
-          <p className="text-[#A99C94] text-sm sm:text-base mt-2 max-w-2xl">
+          <p className="text-[#A8AEA9] text-sm sm:text-base mt-2 max-w-2xl">
             Verified technical training in machine learning, cloud architectures, database systems, software automation, and computational skill sets.
           </p>
         </div>
@@ -77,8 +77,8 @@ export const Certifications: React.FC = () => {
               onClick={() => setSelectedFilter(filter.id)}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 selectedFilter === filter.id
-                  ? 'bg-gradient-orange text-white shadow-md shadow-orange-600/30'
-                  : 'bg-[#17100D] text-[#A99C94] hover:text-[#F7F3EF] hover:bg-[#221712] border border-orange-500/15'
+                  ? 'bg-[#67F59A] text-[#101311] font-bold shadow-md shadow-[#67F59A]/20'
+                  : 'bg-[#171A18] text-[#A8AEA9] hover:text-[#F7F8F6] hover:bg-[#202722] border border-[#232924]'
               }`}
             >
               {filter.label}
@@ -95,7 +95,7 @@ export const Certifications: React.FC = () => {
             return (
               <div
                 key={cert.id}
-                className="warm-card warm-card-hover rounded-3xl p-5 sm:p-6 flex flex-col justify-between border border-orange-500/15"
+                className="bg-[#171A18] rounded-3xl p-5 sm:p-6 flex flex-col justify-between border border-[#232924] hover:border-[#67F59A]/30 transition-all duration-300"
               >
                 <div>
                   {/* Top Bar with Icon & Date */}
@@ -105,30 +105,30 @@ export const Certifications: React.FC = () => {
                     </div>
 
                     {cert.date && (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0C0806] border border-orange-500/15 text-[11px] font-mono text-[#A99C94]">
-                        <Calendar className="w-3 h-3 text-orange-400" />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#141715] border border-[#232924] text-[11px] font-mono text-[#A8AEA9]">
+                        <Calendar className="w-3 h-3 text-[#67F59A]" />
                         <span>{cert.date}</span>
                       </span>
                     )}
                   </div>
 
                   {/* Certification Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-[#F7F3EF] leading-snug mb-2">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#F7F8F6] leading-snug mb-2">
                     {cert.title}
                   </h3>
 
                   {/* Issuer if explicitly specified */}
                   {cert.issuer && (
-                    <div className="flex items-center gap-1.5 text-xs text-[#A99C94] mb-3 font-mono">
-                      <Building className="w-3 h-3 text-orange-400" />
+                    <div className="flex items-center gap-1.5 text-xs text-[#A8AEA9] mb-3 font-mono">
+                      <Building className="w-3 h-3 text-[#67F59A]" />
                       <span>{cert.issuer}</span>
                     </div>
                   )}
                 </div>
 
                 {/* Credential Action */}
-                <div className="pt-3.5 border-t border-orange-500/15 mt-4 flex items-center justify-between text-xs">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#A99C94]">
+                <div className="pt-3.5 border-t border-[#232924] mt-4 flex items-center justify-between text-xs">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#A8AEA9]">
                     Verified Course
                   </span>
                   {hasCredential ? (
@@ -136,13 +136,13 @@ export const Certifications: React.FC = () => {
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-orange-400 hover:text-orange-300"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#67F59A] hover:text-[#A0FFC0]"
                     >
                       <span>View Credential</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   ) : (
-                    <span className="text-[11px] text-[#A99C94] font-mono">Verified Record</span>
+                    <span className="text-[11px] text-[#A8AEA9] font-mono">Verified Record</span>
                   )}
                 </div>
               </div>

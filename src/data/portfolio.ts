@@ -9,7 +9,10 @@ export interface ProjectItem {
   tags?: string[]
   liveUrl?: string
   githubUrl: string
+  githubVerified: boolean      // true = publicly accessible; false = private or unverified
   githubButtonText?: string
+  thumbnail?: string           // e.g. /images/nayan-x-thumbnail.jpg
+  thumbnailAlt?: string
 }
 
 export interface CertificationItem {
@@ -118,8 +121,10 @@ export const portfolioData: PortfolioData = {
     status: "Open to Internship Opportunities",
     github: "https://github.com/thiruvarul11",
     linkedin: "https://www.linkedin.com/in/thiruvarul-k-651375319/",
-    avatarUrl: "/avatar.png",
-    resumeUrl: "/resume.pdf",
+    // Real profile photo supplied by user — located at public/images/thiruvarul-profile.jpg
+    avatarUrl: `${import.meta.env.BASE_URL}images/thiruvarul-profile.jpg`,
+    // Verified PDF: public/resume.pdf — %PDF- header, 15436 bytes
+    resumeUrl: `${import.meta.env.BASE_URL}resume.pdf`,
     resumeAvailable: true,
   },
   education: {
@@ -218,7 +223,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           name: "Urimai-Kaavalan",
-          url: "https://github.com/Prem-dsa/Urimai-Kaavalan",
+          url: "https://github.com/thiruvarul11/urimai-kaavalan",
         },
       ],
     },
@@ -323,10 +328,14 @@ export const portfolioData: PortfolioData = {
       role: "Backend Developer",
       date: "September 2025",
       description:
-        "Contributed to a tourism-focused web application through backend development, server-side logic, component integration, and collaborative project work.",
-      tags: ["Backend Development", "Server-Side Logic", "Smart India Hackathon 2025", "Team Collaboration"],
+        "Contributed to a tourism-focused web application through backend development, server-side logic, component integration, and collaborative project work during Smart India Hackathon 2025.",
+      tags: ["Backend Development", "Server-Side Logic", "SIH 2025", "Team Collaboration"],
+      thumbnail: "/images/jharkhand-connect-thumbnail.jpg",
+      thumbnailAlt: "Scenic aerial view of Jharkhand forests and waterfalls — Jharkhand Connect tourism app",
+      // Owner: thiruvarul11 (your account). Repo is currently private on GitHub — change to public in repo Settings.
       githubUrl: "https://github.com/thiruvarul11/jharkhand-safari-sparks-65",
-      githubButtonText: "View Project on GitHub",
+      githubVerified: false,
+      githubButtonText: "Explore Repository",
       liveUrl: "",
     },
     {
@@ -336,22 +345,30 @@ export const portfolioData: PortfolioData = {
       event: "Smart India Hackathon",
       role: "Project Contributor",
       description:
-        "An AI-related hackathon project with source code and implementation maintained in the project repository.",
+        "An AI-related hackathon project developed during Smart India Hackathon. Source code maintained in the project repository by the project owner.",
       tags: ["Smart India Hackathon", "Software Engineering", "AI Hackathon", "GitHub"],
+      thumbnail: "/images/nayan-x-thumbnail.jpg",
+      thumbnailAlt: "Futuristic AI eye visualization — NAYAN-X Smart India Hackathon project",
+      // ⚠️ Owner: sabari060307 (external collaborator). Repository is currently private or inaccessible.
       githubUrl: "https://github.com/sabari060307/NAYAN-X",
+      githubVerified: false,
       githubButtonText: "Explore Repository",
       liveUrl: "",
     },
     {
       id: "urimai-kaavalan",
       name: "Urimai-Kaavalan",
-      category: "Software Development Project",
+      category: "Software Development / Legal Awareness",
       role: "Developer",
       description:
-        "A software development project demonstrating practical programming, problem-solving, and collaborative source-code development.",
-      tags: ["Software Development", "Problem Solving", "Version Control", "GitHub"],
-      githubUrl: "https://github.com/Prem-dsa/Urimai-Kaavalan",
-      githubButtonText: "Explore Repository",
+        "A software development project focused on legal awareness and public services, demonstrating practical programming, problem-solving, and collaborative source-code development.",
+      tags: ["Software Development", "Legal Awareness", "Problem Solving", "GitHub"],
+      thumbnail: "/images/urimai-kaavalan-thumbnail.jpg",
+      thumbnailAlt: "Elegant legal scales and cultural Tamil Nadu motifs — Urimai-Kaavalan legal awareness project",
+      // Verified public repository on thiruvarul11 account
+      githubUrl: "https://github.com/thiruvarul11/urimai-kaavalan",
+      githubVerified: true,
+      githubButtonText: "View on GitHub",
       liveUrl: "",
     },
   ],

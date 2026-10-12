@@ -11,18 +11,22 @@ import { Leadership } from './sections/Leadership'
 import { Contact } from './sections/Contact'
 import { Footer } from './components/Footer'
 import { ResumeModal } from './components/ResumeModal'
+import { EngineeringBackground } from './components/EngineeringBackground'
 import { portfolioData } from './data/portfolio'
 
 export const App: React.FC = () => {
   const [resumeModalOpen, setResumeModalOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-[#0C0806] text-[#F7F3EF] flex flex-col font-sans selection:bg-orange-500/30 selection:text-orange-200">
+    <div className="relative min-h-screen bg-[#101311] text-[#F7F8F6] flex flex-col font-sans selection:bg-[#67F59A]/30 selection:text-[#A0FFC0]">
+      {/* Subtle AI/ML Engineering Neural Network Animation */}
+      <EngineeringBackground />
+
       {/* Sticky Navigation */}
       <Navbar onOpenResume={() => setResumeModalOpen(true)} />
 
       {/* Main Sections */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Hero onOpenResume={() => setResumeModalOpen(true)} />
         <About />
         <Skills />
